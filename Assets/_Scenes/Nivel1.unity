@@ -6080,5 +6080,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.70900005
       objectReference: {fileID: 0}
+    - target: {fileID: 6610086368384204516, guid: 1ae1c952d3cfbd3469fb93ebf350b172,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610086368384204516, guid: 1ae1c952d3cfbd3469fb93ebf350b172,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610086368384204516, guid: 1ae1c952d3cfbd3469fb93ebf350b172,
+        type: 3}
+      propertyPath: m_Shadows.m_Resolution
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ae1c952d3cfbd3469fb93ebf350b172, type: 3}

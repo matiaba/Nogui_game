@@ -43,6 +43,14 @@ public class LiamController : MonoBehaviour {
         {            
             transform.Translate(0, 0, avance * speed * Time.deltaTime);
             anim.SetBool("isWalking", true);
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                anim.SetBool("isRunning", true);
+            }
+            else
+            {
+                anim.SetBool("isRunning", false);
+            }
         }
         else
         {
