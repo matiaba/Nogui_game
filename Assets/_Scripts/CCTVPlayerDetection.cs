@@ -1,16 +1,25 @@
 ﻿using UnityEngine;
 
 public class CCTVPlayerDetection : MonoBehaviour {
-    private GameObject m_player;
-    //private LastPlayerSighting m_lastPlayerSighting;
+    private GameObject player;
 
     private void Awake() {
-        m_player = GameObject.FindWithTag("Player");
-        //m_lastPlayerSighting = GameObject.FindWithTag("GameController").GetComponent<LastPlayerSighting>;
+        player = GameObject.FindWithTag("Player");
     }
 
     private void OnTriggerStay(Collider other) {
-        Debug.Log("vio al personaje");
+        if(other.gameObject == player)
+        {
+            Vector3 relPlayerPos = player.transform.position - transform.position;
+            RaycastHit hit;
+            if(Physics.Raycast(transform.position, relPlayerPos, out hit))
+            {
+                if(hit.collider.gameObject == player)
+                {
+                    Debug.Log("Player ha sido visto");
+                }
+            }
+        }
     }
 
 }
