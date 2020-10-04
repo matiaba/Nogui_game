@@ -1,14 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(Rigidbody))]
 
 public class LiamController : MonoBehaviour {
     public float speed;
     public float turnSpeed;
-
-    public bool isGrounded;
-    Rigidbody rb;
 
     Animator anim;
 
@@ -17,16 +13,6 @@ public class LiamController : MonoBehaviour {
 	void Awake () {
         anim = GetComponent<Animator>();
 	}
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
-    void OnCollisionStay()
-    {
-        isGrounded = true;
-    }
 
     // Update is called once per frame
     void Update() {
