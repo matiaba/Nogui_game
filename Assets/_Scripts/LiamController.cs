@@ -41,6 +41,7 @@ public class LiamController : MonoBehaviour {
         else
         {
             anim.SetBool("isWalking", false);
+            anim.SetBool("isRunning", false);
         }
 
         if (Input.GetKeyUp(KeyCode.E))
