@@ -442,8 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a210a9ce9e2a87d4e9ed4a7a5c851d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 1034328867}
-  HP: 3
+  canvas: {fileID: 0}
 --- !u!4 &919810699
 Transform:
   m_ObjectHideFlags: 0
@@ -472,7 +471,7 @@ GameObject:
   - component: {fileID: 1034328865}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Menu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -571,7 +570,7 @@ GameObject:
   - component: {fileID: 1411668487}
   - component: {fileID: 1411668486}
   m_Layer: 5
-  m_Name: Button Play
+  m_Name: ButtonPlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
