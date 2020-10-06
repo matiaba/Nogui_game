@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LiamController : MonoBehaviour {
     public float speed;
-    public float turnSpeed;
+    public Transform cameraPlayer;
 
     Animator anim;
 
@@ -21,8 +21,8 @@ public class LiamController : MonoBehaviour {
         anim.SetFloat("Speed", avance);
         
         if (giro != 0)
-        {            
-            transform.Rotate(0, giro * turnSpeed * Time.deltaTime, 0);
+        {
+            transform.eulerAngles = new Vector3 (transform.eulerAngles.x, cameraPlayer.transform.eulerAngles.y, transform.eulerAngles.z);
         }
 
         if (Input.GetKey(KeyCode.W))
