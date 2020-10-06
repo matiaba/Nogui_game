@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-    public Canvas canvas;
-    public int HP = 3;
+    public static GameObject canvas;
+    private bool game_start = true;
 
     void Awake()
     {
@@ -14,17 +14,29 @@ public class GameManager : MonoBehaviour
             //If I am the first instance, make me the Singleton
             instance = this;
             DontDestroyOnLoad(this);
-            DontDestroyOnLoad(canvas);
         }
         else
         {
            Destroy(this.gameObject);
         }
+
+        if (canvas == null)
+        {
+            canvas = GameObject.FindGameObjectWithTag("Menu");
+            DontDestroyOnLoad(canvas);
+        }
+        else
+        {
+           Destroy(canvas.gameObject);
+        }
+
     }
 
-    public void AddHealth()
-    {
-        HP++;
+    void Update() {
+        
+        set_canvas_on_load_level();
+        pause_game();
+        
     }
 
     public void ExitGame()
@@ -44,5 +56,33 @@ public class GameManager : MonoBehaviour
         }
         else
             SceneManager.LoadScene(1);
+            
     }
+
+    private void set_canvas_on_load_level()
+    {
+        if (game_start && SceneManager.GetActiveScene().name != "Menu")
+        {
+            canvas.SetActive(false);
+            game_start = false;
+        }
+    }
+
+    private void pause_game()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape) && canvas.activeSelf == false)
+        {
+            canvas.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            if (Input.GetKeyUp(KeyCode.Escape) && canvas.activeSelf == true)
+            {
+                canvas.SetActive(false);
+                Time.timeScale = 1;
+            }
+        }
+    }
+
 }
