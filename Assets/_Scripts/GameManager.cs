@@ -33,24 +33,9 @@ public class GameManager : MonoBehaviour
     }
 
     void Update() {
-        if (SceneManager.GetActiveScene().name != "Menu")
-        {
-            set_canvas_on_load_level();
-            if (Input.GetKeyUp(KeyCode.Escape) && canvas.activeSelf == false)
-            {
-                canvas.SetActive(true);
-                Time.timeScale = 0;
-            }
-            else
-            {
-                if (Input.GetKeyUp(KeyCode.Escape) && canvas.activeSelf == true)
-                {
-                    canvas.SetActive(false);
-                    Time.timeScale = 1;
-                }
-            }
-        }
         
+        set_canvas_on_load_level();
+        pause_game();
         
     }
 
@@ -80,6 +65,23 @@ public class GameManager : MonoBehaviour
         {
             canvas.SetActive(false);
             game_start = false;
+        }
+    }
+
+    private void pause_game()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape) && canvas.activeSelf == false)
+        {
+            canvas.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            if (Input.GetKeyUp(KeyCode.Escape) && canvas.activeSelf == true)
+            {
+                canvas.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
     }
 
