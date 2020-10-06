@@ -914,6 +914,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &589495070
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1932960272000696744, guid: 942708c7f8819594ab440b5476cd86bd,
+        type: 3}
+      propertyPath: m_Name
+      value: CameraBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932960272000696745, guid: 942708c7f8819594ab440b5476cd86bd,
+        type: 3}
+      propertyPath: CameraFollowObj
+      value: 
+      objectReference: {fileID: 1148004145}
+    - target: {fileID: 1932960272000696746, guid: 942708c7f8819594ab440b5476cd86bd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932960272000696746, guid: 942708c7f8819594ab440b5476cd86bd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 20.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932960272000696746, guid: 942708c7f8819594ab440b5476cd86bd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -16.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932960272000696746, guid: 942708c7f8819594ab440b5476cd86bd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.23805045
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932960272000696746, guid: 942708c7f8819594ab440b5476cd86bd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932960272000696746, guid: 942708c7f8819594ab440b5476cd86bd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932960272000696746, guid: 942708c7f8819594ab440b5476cd86bd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.97125286
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932960272000696746, guid: 942708c7f8819594ab440b5476cd86bd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932960272000696746, guid: 942708c7f8819594ab440b5476cd86bd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 27.543001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932960272000696746, guid: 942708c7f8819594ab440b5476cd86bd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932960272000696746, guid: 942708c7f8819594ab440b5476cd86bd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 942708c7f8819594ab440b5476cd86bd, type: 3}
 --- !u!1001 &610739825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1455,6 +1529,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904250067}
   m_CullTransparentMesh: 0
+--- !u!1 &1148004145 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1821635905833426291, guid: 296e864703129844991e83da6d917dd6,
+    type: 3}
+  m_PrefabInstance: {fileID: 6151320894811525264}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1165362484
 GameObject:
   m_ObjectHideFlags: 0
@@ -4160,6 +4240,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1788457721}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1805526502 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1932960272000696746, guid: 942708c7f8819594ab440b5476cd86bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 589495070}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1808992631
 GameObject:
   m_ObjectHideFlags: 0
@@ -4635,6 +4721,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6151320895327736134, guid: 296e864703129844991e83da6d917dd6,
+        type: 3}
+      propertyPath: cameraPlayer
+      value: 
+      objectReference: {fileID: 1805526502}
     - target: {fileID: 6151320895327736137, guid: 296e864703129844991e83da6d917dd6,
         type: 3}
       propertyPath: slots.Array.data[0]
