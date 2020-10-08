@@ -6,9 +6,12 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     public static GameObject canvas;
     public static GameObject musicScene;
+    public static GameObject musicTitle;
     GameObject menu_principal;
     GameObject menu_perder;
-    AudioSource audio;
+    GameObject menu_control;
+    AudioSource audio_scene;
+    AudioSource audio_title;
     private bool game_start = true;
 
     void Awake()
@@ -49,6 +52,9 @@ public class GameManager : MonoBehaviour
     private void Start() {
         menu_principal = canvas.transform.GetChild(4).gameObject;
         menu_perder = canvas.transform.GetChild(1).gameObject;
+        menu_control = canvas.transform.GetChild(2).gameObject;
+        musicTitle = GameObject.Find("TitleMusic");
+        audio_title = musicTitle.GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -85,8 +91,8 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             canvas.SetActive(false);
-            audio = musicScene.GetComponent<AudioSource>();
-            audio.mute = false;
+            audio_scene = musicScene.GetComponent<AudioSource>();
+            audio_scene.mute = false;
 
             game_start = false;
         }
@@ -94,38 +100,45 @@ public class GameManager : MonoBehaviour
 
     private void pause_game()
     {
-        if (Input.GetKeyUp(KeyCode.Escape) && canvas.activeSelf == false)
+        if (menu_control.activeSelf == false)
         {
-            audio.mute = true;
-            Cursor.lockState = CursorLockMode.Confined;
-            canvas.SetActive(true);
-            menu_principal.transform.GetChild(1).gameObject.SetActive(false);
-            Cursor.visible = true;
-            Time.timeScale = 0;
-        }
-        else
-        {
-            if (Input.GetKeyUp(KeyCode.Escape) && canvas.activeSelf == true)
+            if (Input.GetKeyUp(KeyCode.Escape) && canvas.activeSelf == false)
             {
-                if (menu_principal.activeSelf == false)
+                audio_scene.mute = true;
+                Cursor.lockState = CursorLockMode.Confined;
+                canvas.SetActive(true);
+                menu_principal.transform.GetChild(1).gameObject.SetActive(false);
+                Cursor.visible = true;
+                Time.timeScale = 0;
+            }
+            else
+            {
+                if (Input.GetKeyUp(KeyCode.Escape) && canvas.activeSelf == true)
                 {
-                    canvas.transform.GetChild(0).gameObject.SetActive(true);
-                    menu_principal.SetActive(true);
-                    menu_principal.transform.GetChild(1).gameObject.SetActive(false);
-                    audio.mute = true;
-                    Time.timeScale = 0;
+                    if (menu_principal.activeSelf == false)
+                    {
+                        canvas.transform.GetChild(0).gameObject.SetActive(true);
+                        menu_principal.SetActive(true);
+                        menu_principal.transform.GetChild(1).gameObject.SetActive(false);
+                        audio_scene.mute = true;
+                        musicTitle.SetActive(true);
+                        Cursor.visible = true;
+                        Cursor.lockState = CursorLockMode.Confined;
+                        Time.timeScale = 0;
+                    }
+                    else
+                    {
+                        audio_scene.mute = false;
+                        Cursor.lockState = CursorLockMode.Locked;
+                        canvas.SetActive(false);
+                        Cursor.visible = false;
+                        Time.timeScale = 1;
+                    }
+                    
                 }
-                else
-                {
-                    audio.mute = false;
-                    Cursor.lockState = CursorLockMode.Locked;
-                    canvas.SetActive(false);
-                    Cursor.visible = false;
-                    Time.timeScale = 1;
-                }
-                
             }
         }
+        
     }
 
     public void restart_game()
@@ -137,8 +150,9 @@ public class GameManager : MonoBehaviour
         canvas.transform.GetChild(2).gameObject.SetActive(false);
         canvas.transform.GetChild(3).gameObject.SetActive(false);
         canvas.transform.GetChild(4).gameObject.SetActive(false);
+        canvas.transform.GetChild(5).gameObject.SetActive(false);
         Cursor.visible = false;
-        audio.Play();
+        audio_scene.Play();
         Time.timeScale = 1;
         SceneManager.LoadScene(scene_index);
     }

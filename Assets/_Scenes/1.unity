@@ -812,6 +812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas_menu: {fileID: 0}
+  menu_perder: {fileID: 0}
 --- !u!65 &574332865
 BoxCollider:
   m_ObjectHideFlags: 0
