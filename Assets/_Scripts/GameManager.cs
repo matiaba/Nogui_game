@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     public static GameObject canvas;
     public static GameObject musicScene;
+    GameObject menu_principal;
+    GameObject menu_perder;
     AudioSource audio;
     private bool game_start = true;
 
@@ -42,6 +44,11 @@ public class GameManager : MonoBehaviour
            Destroy(musicScene.gameObject);
         }
 
+    }
+
+    private void Start() {
+        menu_principal = canvas.transform.GetChild(4).gameObject;
+        menu_perder = canvas.transform.GetChild(1).gameObject;
     }
 
     void Update() {
@@ -99,11 +106,22 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetKeyUp(KeyCode.Escape) && canvas.activeSelf == true)
             {
-                audio.mute = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                canvas.SetActive(false);
-                Cursor.visible = false;
-                Time.timeScale = 1;
+                if (menu_principal.activeSelf == false)
+                {
+                    canvas.transform.GetChild(0).gameObject.SetActive(true);
+                    menu_principal.SetActive(true);
+                    audio.mute = true;
+                    Time.timeScale = 0;
+                }
+                else
+                {
+                    audio.mute = false;
+                    Cursor.lockState = CursorLockMode.Locked;
+                    canvas.SetActive(false);
+                    Cursor.visible = false;
+                    Time.timeScale = 1;
+                }
+                
             }
         }
     }
@@ -112,8 +130,13 @@ public class GameManager : MonoBehaviour
     {
         var scene_index = SceneManager.GetActiveScene().buildIndex;
         Cursor.lockState = CursorLockMode.Locked;
-        canvas.SetActive(false);
+        canvas.transform.GetChild(0).gameObject.SetActive(false);
+        canvas.transform.GetChild(1).gameObject.SetActive(false);
+        canvas.transform.GetChild(2).gameObject.SetActive(false);
+        canvas.transform.GetChild(3).gameObject.SetActive(false);
+        canvas.transform.GetChild(4).gameObject.SetActive(false);
         Cursor.visible = false;
+        audio.Play();
         Time.timeScale = 1;
         SceneManager.LoadScene(scene_index);
     }
