@@ -99,6 +99,7 @@ public class GameManager : MonoBehaviour
             audio.mute = true;
             Cursor.lockState = CursorLockMode.Confined;
             canvas.SetActive(true);
+            menu_principal.transform.GetChild(1).gameObject.SetActive(false);
             Cursor.visible = true;
             Time.timeScale = 0;
         }
@@ -110,6 +111,7 @@ public class GameManager : MonoBehaviour
                 {
                     canvas.transform.GetChild(0).gameObject.SetActive(true);
                     menu_principal.SetActive(true);
+                    menu_principal.transform.GetChild(1).gameObject.SetActive(false);
                     audio.mute = true;
                     Time.timeScale = 0;
                 }
