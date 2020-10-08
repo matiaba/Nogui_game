@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
     public static GameObject canvas;
+    public static GameObject musicScene;
+    AudioSource audio;
     private bool game_start = true;
 
     void Awake()
@@ -28,6 +30,16 @@ public class GameManager : MonoBehaviour
         else
         {
            Destroy(canvas.gameObject);
+        }
+
+        if (musicScene == null)
+        {
+            musicScene = GameObject.Find("MusicScene");
+            DontDestroyOnLoad(musicScene);
+        }
+        else
+        {
+           Destroy(musicScene.gameObject);
         }
 
     }
@@ -66,6 +78,9 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             canvas.SetActive(false);
+            audio = musicScene.GetComponent<AudioSource>();
+            audio.mute = false;
+
             game_start = false;
         }
     }
@@ -74,6 +89,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Escape) && canvas.activeSelf == false)
         {
+            audio.mute = true;
             Cursor.lockState = CursorLockMode.Confined;
             canvas.SetActive(true);
             Cursor.visible = true;
@@ -83,6 +99,7 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetKeyUp(KeyCode.Escape) && canvas.activeSelf == true)
             {
+                audio.mute = false;
                 Cursor.lockState = CursorLockMode.Locked;
                 canvas.SetActive(false);
                 Cursor.visible = false;
