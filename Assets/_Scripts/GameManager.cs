@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     GameObject menu_principal;
     GameObject menu_perder;
     GameObject menu_control;
+    GameObject menu_ganar;
     AudioSource audio_scene;
     AudioSource audio_title;
     private bool game_start = true;
@@ -53,12 +54,12 @@ public class GameManager : MonoBehaviour
         menu_principal = canvas.transform.GetChild(4).gameObject;
         menu_perder = canvas.transform.GetChild(1).gameObject;
         menu_control = canvas.transform.GetChild(2).gameObject;
+        menu_ganar = canvas.transform.GetChild(3).gameObject;
         musicTitle = GameObject.Find("TitleMusic");
         audio_title = musicTitle.GetComponent<AudioSource>();
     }
 
     void Update() {
-        
         set_scene_game();
         pause_game();
         
@@ -80,7 +81,10 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene(level);
         }
         else
+        {
             SceneManager.LoadScene(1);
+        }
+            
             
     }
 
@@ -93,8 +97,8 @@ public class GameManager : MonoBehaviour
             canvas.SetActive(false);
             audio_scene = musicScene.GetComponent<AudioSource>();
             audio_scene.mute = false;
-
             game_start = false;
+            
         }
     }
 
@@ -155,6 +159,11 @@ public class GameManager : MonoBehaviour
         audio_scene.Play();
         Time.timeScale = 1;
         SceneManager.LoadScene(scene_index);
+    }
+
+    public void new_level()
+    {
+        Time.timeScale = 1;
     }
 
 }

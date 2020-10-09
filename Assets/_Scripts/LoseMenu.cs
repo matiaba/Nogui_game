@@ -8,7 +8,7 @@ public class LoseMenu : MonoBehaviour
     public GameObject canvas_menu;
     public GameObject menu_perder;
     public static GameObject musicScene;
-    AudioSource audio;
+    new AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
