@@ -4,16 +4,16 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-    public static GameObject canvas;
-    public static GameObject musicScene;
-    public static GameObject musicTitle;
-    GameObject menu_principal;
-    GameObject menu_perder;
-    GameObject menu_control;
-    GameObject menu_ganar;
+    public static GameObject canvas = null;
+    public static GameObject music = null;
+    int canvas_children;
+    public GameObject menu_principal;
+    public GameObject menu_perder;
+    public GameObject menu_control;
+    public GameObject menu_ganar;
+    public GameObject menu_pausa;
+    public GameObject audio_escena;
     AudioSource audio_scene;
-    AudioSource audio_title;
-    private bool game_start = true;
 
     void Awake()
     {
@@ -38,36 +38,31 @@ public class GameManager : MonoBehaviour
            Destroy(canvas.gameObject);
         }
 
-        if (musicScene == null)
+        if (music == null)
         {
-            musicScene = GameObject.Find("MusicScene");
-            DontDestroyOnLoad(musicScene);
+            music = GameObject.FindGameObjectWithTag("Sound");
+            DontDestroyOnLoad(music);
         }
         else
         {
-           Destroy(musicScene.gameObject);
+           Destroy(music.gameObject);
         }
 
     }
 
     private void Start() {
+        menu_perder = canvas.transform.GetChild(0).gameObject;
+        menu_control = canvas.transform.GetChild(1).gameObject;
+        menu_ganar = canvas.transform.GetChild(2).gameObject;
         menu_principal = canvas.transform.GetChild(4).gameObject;
-        menu_perder = canvas.transform.GetChild(1).gameObject;
-        menu_control = canvas.transform.GetChild(2).gameObject;
-        menu_ganar = canvas.transform.GetChild(3).gameObject;
-        musicTitle = GameObject.Find("TitleMusic");
-        audio_title = musicTitle.GetComponent<AudioSource>();
+        menu_pausa = menu_principal.transform.GetChild(3).gameObject;
+        canvas_children = canvas.transform.childCount;
+        audio_escena = music.transform.GetChild(0).gameObject;
+        audio_scene = audio_escena.GetComponent<AudioSource>();
     }
 
     void Update() {
-        set_scene_game();
-        pause_game();
-        
-    }
-
-    public void ExitGame()
-    {
-        Application.Quit();
+        PauseGame();
     }
 
     public void LoadScene()
@@ -88,82 +83,69 @@ public class GameManager : MonoBehaviour
             
     }
 
-    private void set_scene_game()
+        public void SetScene()
     {
-        if (game_start && SceneManager.GetActiveScene().buildIndex != 0)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            canvas.SetActive(false);
-            audio_scene = musicScene.GetComponent<AudioSource>();
-            audio_scene.mute = false;
-            game_start = false;
-            
-        }
-    }
-
-    private void pause_game()
-    {
-        if (menu_control.activeSelf == false)
-        {
-            if (Input.GetKeyUp(KeyCode.Escape) && canvas.activeSelf == false)
-            {
-                audio_scene.mute = true;
-                Cursor.lockState = CursorLockMode.Confined;
-                canvas.SetActive(true);
-                menu_principal.transform.GetChild(1).gameObject.SetActive(false);
-                Cursor.visible = true;
-                Time.timeScale = 0;
-            }
-            else
-            {
-                if (Input.GetKeyUp(KeyCode.Escape) && canvas.activeSelf == true)
-                {
-                    if (menu_principal.activeSelf == false)
-                    {
-                        canvas.transform.GetChild(0).gameObject.SetActive(true);
-                        menu_principal.SetActive(true);
-                        menu_principal.transform.GetChild(1).gameObject.SetActive(false);
-                        audio_scene.mute = true;
-                        musicTitle.SetActive(true);
-                        Cursor.visible = true;
-                        Cursor.lockState = CursorLockMode.Confined;
-                        Time.timeScale = 0;
-                    }
-                    else
-                    {
-                        audio_scene.mute = false;
-                        Cursor.lockState = CursorLockMode.Locked;
-                        canvas.SetActive(false);
-                        Cursor.visible = false;
-                        Time.timeScale = 1;
-                    }
-                    
-                }
-            }
-        }
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        DesactivateCanvasChildren();
         
     }
 
-    public void restart_game()
+    public void ExitGame()
     {
-        var scene_index = SceneManager.GetActiveScene().buildIndex;
-        Cursor.lockState = CursorLockMode.Locked;
-        canvas.transform.GetChild(0).gameObject.SetActive(false);
-        canvas.transform.GetChild(1).gameObject.SetActive(false);
-        canvas.transform.GetChild(2).gameObject.SetActive(false);
-        canvas.transform.GetChild(3).gameObject.SetActive(false);
-        canvas.transform.GetChild(4).gameObject.SetActive(false);
-        canvas.transform.GetChild(5).gameObject.SetActive(false);
-        Cursor.visible = false;
-        audio_scene.Play();
-        Time.timeScale = 1;
-        SceneManager.LoadScene(scene_index);
+        Application.Quit();
     }
 
-    public void new_level()
+    private void PauseGame()
     {
+        if(Input.GetKeyUp(KeyCode.Escape) && SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            if(Time.timeScale == 1)
+			{
+				Time.timeScale = 0;
+				showPaused();
+			} 
+            
+            else if (Time.timeScale == 0)
+            {
+				Time.timeScale = 1;
+				hidePaused();
+			}
+        }
+    }
+
+    public void showPaused()
+    {
+        menu_principal.SetActive(true);
+        menu_principal.transform.GetChild(2).gameObject.SetActive(false);
+        menu_pausa.SetActive(true);
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+
+	}
+
+    public void hidePaused()
+    {
+        menu_principal.SetActive(false);
+		menu_pausa.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+	}
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        DesactivateCanvasChildren();
         Time.timeScale = 1;
+    }
+
+    public void DesactivateCanvasChildren()
+    {
+        for (int i=0; i < canvas_children; i++)
+        {
+            canvas.transform.GetChild(i).gameObject.SetActive(false);
+        }
     }
 
 }
