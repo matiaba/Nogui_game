@@ -786,8 +786,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f267e20708767e54ca1565ea21600fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas_menu: {fileID: 0}
-  menu_perder: {fileID: 0}
 --- !u!65 &574332865
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -813,7 +811,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &589495070
 PrefabInstance:
@@ -870,7 +868,7 @@ PrefabInstance:
     - target: {fileID: 1932960272000696746, guid: 942708c7f8819594ab440b5476cd86bd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1932960272000696746, guid: 942708c7f8819594ab440b5476cd86bd,
         type: 3}
@@ -1182,7 +1180,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &784279339
 PrefabInstance:
@@ -1406,7 +1404,7 @@ PrefabInstance:
     - target: {fileID: 6681381571126465881, guid: db1b7268b1e32a74485d8a5f7c721dc5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6681381571126465881, guid: db1b7268b1e32a74485d8a5f7c721dc5,
         type: 3}
@@ -1444,10 +1442,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel_inventory: {fileID: 0}
-  canvas: {fileID: 0}
-  menu_ganar: {fileID: 0}
-  menu_principal: {fileID: 0}
-  scene_music: {fileID: 0}
 --- !u!1 &904250067
 GameObject:
   m_ObjectHideFlags: 0
@@ -4181,10 +4175,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel_inventory: {fileID: 0}
-  canvas: {fileID: 0}
-  menu_ganar: {fileID: 0}
-  menu_principal: {fileID: 0}
-  scene_music: {fileID: 0}
 --- !u!1001 &1788457721
 PrefabInstance:
   m_ObjectHideFlags: 0

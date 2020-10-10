@@ -6,17 +6,17 @@ public class WinMenu : MonoBehaviour
 {
     public GameObject panel_inventory;
     public static GameManager gameManager;
-    public GameObject music;
     int inventory_slots;
 
     void Start()
     {
-        panel_inventory = GameObject.FindGameObjectWithTag("Inventory");
-        inventory_slots = panel_inventory.transform.childCount;
         if (gameManager == null)
         {
             gameManager = FindObjectOfType<GameManager>();
         }
+
+        panel_inventory = GameObject.FindGameObjectWithTag("Inventory");
+        inventory_slots = panel_inventory.transform.childCount;
     }
 
 

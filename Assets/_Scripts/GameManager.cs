@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null)
         {
-            //If I am the first instance, make me the Singleton
             instance = this;
             DontDestroyOnLoad(this);
         }
