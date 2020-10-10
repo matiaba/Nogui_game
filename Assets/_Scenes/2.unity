@@ -2813,21 +2813,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4479925164288152312, guid: 5771f9f9ffcbc214996ddad08cf25d57,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4479925164288152312, guid: 5771f9f9ffcbc214996ddad08cf25d57,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4479925164288152312, guid: 5771f9f9ffcbc214996ddad08cf25d57,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4479925164567637338, guid: 5771f9f9ffcbc214996ddad08cf25d57,
         type: 3}
       propertyPath: m_Name
@@ -2936,26 +2921,6 @@ PrefabInstance:
     - target: {fileID: 4479925164567637342, guid: 5771f9f9ffcbc214996ddad08cf25d57,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4479925165415464119, guid: 5771f9f9ffcbc214996ddad08cf25d57,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4479925165459147179, guid: 5771f9f9ffcbc214996ddad08cf25d57,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4479925165459147179, guid: 5771f9f9ffcbc214996ddad08cf25d57,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4479925165689406129, guid: 5771f9f9ffcbc214996ddad08cf25d57,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3198,9 +3163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel_inventory: {fileID: 0}
-  canvas: {fileID: 0}
-  menu_ganar: {fileID: 0}
-  menu_principal: {fileID: 0}
   scene_music: {fileID: 0}
 --- !u!1001 &2016414873
 PrefabInstance:
