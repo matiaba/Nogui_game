@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Paper
   - Menu
+  - Sound
+  - Inventory
   layers:
   - Default
   - TransparentFX

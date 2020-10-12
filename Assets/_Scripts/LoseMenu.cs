@@ -1,20 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoseMenu : MonoBehaviour
 {
-    public GameObject canvas_menu;
-    // Start is called before the first frame update
+    public static GameManager gameManager;
+    public static GameObject musicScene;
     void Start()
     {
-        canvas_menu = GameObject.FindGameObjectWithTag("Menu");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (gameManager == null)
+        {
+            gameManager = FindObjectOfType<GameManager>();
+        }
     }
 
     private void OnTriggerEnter(Collider hit)
@@ -22,7 +20,11 @@ public class LoseMenu : MonoBehaviour
         if (hit.CompareTag("Player"))
         {
             Time.timeScale = 0;
-            canvas_menu.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+            gameManager.menu_perder.SetActive(true);
+
         }
     }
+
 }
