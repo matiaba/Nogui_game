@@ -24,7 +24,7 @@ public class SliderTimerDisplay : MonoBehaviour
     void Update()
     {
         sliderUI.value = countdownTimer.GetProportionTimeRemaining();
-        // print(countdownTimer.GetProportionTimeRemaining());
+        print(countdownTimer.GetProportionTimeRemaining());
     }
     
     private void SetupSlider()
