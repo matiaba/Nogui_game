@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
             if (level <= 10)
                 SceneManager.LoadScene(level);
             else
-                SceneManager.LoadScene(0);
+                menu_ganar.transform.GetChild(2).gameObject.SetActive(false);
         }
         else
         {
@@ -86,19 +86,10 @@ public class GameManager : MonoBehaviour
 
         public void SetScene()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 0)
-        {
-            Time.timeScale = 1;
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            DesactivateCanvasChildren();
-        }
-        else
-        {
-            Time.timeScale = 1;
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
-        }
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        DesactivateCanvasChildren();
         
     }
 
