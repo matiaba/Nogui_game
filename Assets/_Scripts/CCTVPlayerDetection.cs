@@ -2,11 +2,18 @@
 
 public class CCTVPlayerDetection : MonoBehaviour {
     private GameObject player;
+    public GameManager gameManager;
 
     private void Awake() {
         player = GameObject.FindWithTag("Player");
     }
 
+    private void Start() {
+        if (gameManager == null)
+            {
+                gameManager = FindObjectOfType<GameManager>();
+            }
+    }
     private void OnTriggerStay(Collider other) {
         if(other.gameObject == player)
         {
@@ -16,7 +23,10 @@ public class CCTVPlayerDetection : MonoBehaviour {
             {
                 if(hit.collider.gameObject == player)
                 {
-                    Debug.Log("Player ha sido visto");
+                    gameManager.menu_perder.SetActive(true);
+                    Time.timeScale = 0;
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.Confined;
                 }
             }
         }
