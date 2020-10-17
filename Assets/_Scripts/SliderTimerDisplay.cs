@@ -18,13 +18,12 @@ public class SliderTimerDisplay : MonoBehaviour
     void Start()
     {
         SetupSlider();
-        countdownTimer.ResetTimer(30);
+        countdownTimer.ResetTimer(90);
     }
     
     void Update()
     {
         sliderUI.value = countdownTimer.GetProportionTimeRemaining();
-        print(countdownTimer.GetProportionTimeRemaining());
     }
     
     private void SetupSlider()
