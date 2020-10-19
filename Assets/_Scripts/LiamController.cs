@@ -8,12 +8,15 @@ public class LiamController : MonoBehaviour {
 
     Animator anim;
 
-
+    public Collider standupCollider;
+    public Collider crouchCollider;
 	// Use this for initialization
 	void Awake () {
         anim = GetComponent<Animator>();
 	}
 
+    private void Start() {
+    }
     // Update is called once per frame
     void Update() {
         float giro = Input.GetAxis("Horizontal");
@@ -48,10 +51,14 @@ public class LiamController : MonoBehaviour {
         {
             if (anim.GetBool("isCrawling"))
             {
+                standupCollider.enabled = !standupCollider.enabled;
+                crouchCollider.enabled = !crouchCollider.enabled;
                 anim.SetBool("isCrawling", false);
             }
             else
             {
+                standupCollider.enabled = !standupCollider.enabled;
+                crouchCollider.enabled = !crouchCollider.enabled;
                 anim.SetBool("isCrawling", true);
             }
         }

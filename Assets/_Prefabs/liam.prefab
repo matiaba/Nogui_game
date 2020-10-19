@@ -2419,6 +2419,7 @@ GameObject:
   - component: {fileID: 6151320895327736134}
   - component: {fileID: 6151320895327736137}
   - component: {fileID: 6151320895327736138}
+  - component: {fileID: 5102315199454531260}
   m_Layer: 0
   m_Name: liam
   m_TagString: Player
@@ -2511,6 +2512,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   cameraPlayer: {fileID: 0}
+  standupCollider: {fileID: 6151320895327736133}
+  crouchCollider: {fileID: 5102315199454531260}
 --- !u!114 &6151320895327736137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2537,6 +2540,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff6216c629115a479c9f78b053f38f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &5102315199454531260
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6151320895327770602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 0.9053749
+  m_Height: 1.914265
+  m_Direction: 1
+  m_Center: {x: -0.0035619736, y: 0.9753483, z: 0.02226162}
 --- !u!1 &6151320895327770604
 GameObject:
   m_ObjectHideFlags: 0
