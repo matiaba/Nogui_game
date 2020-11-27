@@ -62,6 +62,14 @@ public class GameManager : MonoBehaviour
 
     void Update() {
         PauseGame();
+        if (Input.GetKeyUp(KeyCode.KeypadPlus))
+        {
+            LoadScene();
+        }
+        if (Input.GetKeyUp(KeyCode.KeypadMinus))
+        {
+            BackScene();
+        }
     }
 
     public void LoadScene()
@@ -79,6 +87,18 @@ public class GameManager : MonoBehaviour
         else
         {
             SceneManager.LoadScene(1);
+        }
+
+    }
+
+       void BackScene()
+    {
+        int level;
+        if (SceneManager.GetActiveScene().buildIndex > 1)
+        {
+            level = SceneManager.GetActiveScene().buildIndex;
+            level -= 1;
+            SceneManager.LoadScene(level);
         }
 
     }
