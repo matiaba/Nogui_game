@@ -387,6 +387,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.70900005
       objectReference: {fileID: 0}
+    - target: {fileID: 6610086368384204516, guid: 1ae1c952d3cfbd3469fb93ebf350b172,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ae1c952d3cfbd3469fb93ebf350b172, type: 3}
 --- !u!1 &86265405
@@ -794,6 +799,11 @@ PrefabInstance:
     - target: {fileID: 62666310654669771, guid: 4d551399094b2b84e9e99f2d1b9da29e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330908936432408231, guid: 4d551399094b2b84e9e99f2d1b9da29e,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1867,6 +1877,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.70900005
       objectReference: {fileID: 0}
+    - target: {fileID: 6610086368384204516, guid: 1ae1c952d3cfbd3469fb93ebf350b172,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8806943713103880039, guid: 1ae1c952d3cfbd3469fb93ebf350b172,
         type: 3}
       propertyPath: m_LocalScale.z
@@ -2307,6 +2322,11 @@ PrefabInstance:
     - target: {fileID: 62666310654669771, guid: 4d551399094b2b84e9e99f2d1b9da29e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330908936432408231, guid: 4d551399094b2b84e9e99f2d1b9da29e,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3385,6 +3405,11 @@ PrefabInstance:
     - target: {fileID: 62666310654669771, guid: 4d551399094b2b84e9e99f2d1b9da29e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330908936432408231, guid: 4d551399094b2b84e9e99f2d1b9da29e,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
