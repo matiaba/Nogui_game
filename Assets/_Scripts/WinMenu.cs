@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinMenu : MonoBehaviour
 {
@@ -45,7 +46,14 @@ public class WinMenu : MonoBehaviour
             Time.timeScale = 0;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
-            gameManager.menu_ganar.SetActive(true);
+            if (SceneManager.GetActiveScene().buildIndex == 10)
+            {
+                gameManager.menu_ganar.SetActive(true);
+                gameManager.menu_ganar.transform.GetChild(2).gameObject.SetActive(false);
+            }
+            else{
+                gameManager.menu_ganar.SetActive(true);
+            }
         }
 
         else
