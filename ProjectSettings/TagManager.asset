@@ -8,6 +8,8 @@ TagManager:
   - Menu
   - Sound
   - Inventory
+  - EventSystem
+  - Button
   layers:
   - Default
   - TransparentFX

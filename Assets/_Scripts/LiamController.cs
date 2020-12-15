@@ -22,17 +22,17 @@ public class LiamController : MonoBehaviour {
         float giro = Input.GetAxis("Horizontal");
         float avance = Input.GetAxis("Vertical");
         anim.SetFloat("Speed", avance);
-        
+
         if (giro != 0)
         {
             transform.eulerAngles = new Vector3 (transform.eulerAngles.x, cameraPlayer.transform.eulerAngles.y, transform.eulerAngles.z);
         }
 
         if (Input.GetKey(KeyCode.W))
-        {            
+        {
             transform.Translate(0, 0, avance * speed * Time.deltaTime);
             anim.SetBool("isWalking", true);
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(KeyCode.Space))
             {
                 anim.SetBool("isRunning", true);
             }

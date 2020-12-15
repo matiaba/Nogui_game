@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     public static GameObject canvas = null;
     public static GameObject music = null;
+    public static GameObject eventSystem;
     int canvas_children;
     public GameObject menu_principal;
     public GameObject menu_perder;
@@ -109,7 +110,7 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         DesactivateCanvasChildren();
-        
+
     }
 
     public void ExitGame()
@@ -125,8 +126,8 @@ public class GameManager : MonoBehaviour
 			{
 				Time.timeScale = 0;
 				showPaused();
-			} 
-            
+			}
+
             else if (Time.timeScale == 0)
             {
 				Time.timeScale = 1;
